@@ -34,10 +34,11 @@ public class GenerateRandomDataServiceImpl implements GenerateRandomDataService 
 
     //private methods
     /**
+     * Generate a random set of "ParkingSlot".
      *
      * @param parkingSlotType
      * @param totalNumberSlots
-     * @return
+     * @return {Set<ParkingSlot>}
      */
     private Set<ParkingSlot> generateRandomParkingSlotSet(ParkingSlotType parkingSlotType, int totalNumberSlots) {
         Set<ParkingSlot> parkingSlotSet = new HashSet<>();
@@ -62,10 +63,11 @@ public class GenerateRandomDataServiceImpl implements GenerateRandomDataService 
     }
 
     /**
+     * Generate a random set of "ParkingSlotType".
      *
      * @param tollParking
      * @param totalParkingNumberSlots
-     * @return
+     * @return {Set<ParkingSlotType>}
      */
     private Set<ParkingSlotType> generateRandomParkingSlotTypeSet(TollParking tollParking, int totalParkingNumberSlots){
         Set<ParkingSlotType> parkingSlotTypeSet = new HashSet<>();
@@ -84,10 +86,11 @@ public class GenerateRandomDataServiceImpl implements GenerateRandomDataService 
     }
 
     /**
+     * Generate a random set of "TollParking".
      *
      * @param pricingPolicy
      * @param city
-     * @return
+     * @return {Set<TollParking>}
      */
     private Set<TollParking> generateRandomTollParkingSet(PricingPolicy pricingPolicy, String city) {
         Set<TollParking> tollParkingSet = new HashSet<>();
@@ -109,8 +112,9 @@ public class GenerateRandomDataServiceImpl implements GenerateRandomDataService 
 
     //public methods
     /**
+     * Generate a random set of "PricingPolicies".
      *
-     * @return
+     * @return {Set<PricingPolicy>}
      */
     @Override
     @Transactional

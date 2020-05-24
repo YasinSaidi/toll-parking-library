@@ -41,10 +41,12 @@ public class TollParkingController {
 
     //public methods
     /**
+     * Controller to use when a car is trying to enter the parking to send it
+     * to the right parking slot, mark it as unavailable, or refuse the car if there is no slot of the correct type.
      *
      * @param parkingName
      * @param carType
-     * @return
+     * @return A message with the parking name and the slot number or there is no unoccupied parking slot.
      */
     @ApiOperation(value = "Send the cars to the right parking slot or refuse them if there is no slot " +
             "of the right type left.")
@@ -84,12 +86,13 @@ public class TollParkingController {
     }
 
     /**
+     * Controller to use when a car is leaving the parking to mark the slot as free and bill the customer.
      *
      * @param parkingName
      * @param carType
      * @param slotIdentifier
      * @param numberHours
-     * @return
+     * @return A message contains the amount of money the customer should pay before leaving the parking.
      */
     @ApiOperation(value = "Mark the parking slot as Free and bill the customer when the car leaves the parking.")
     @ApiResponses({

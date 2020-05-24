@@ -46,9 +46,10 @@ public class TollParkingServiceImpl implements TollParkingService {
 
     //private methods
     /**
+     * Based on the car type, it returns the parking slot code.
      *
      * @param carType
-     * @return
+     * @return {String}
      */
     private String parkingSlotCode(String carType) {
         HashMap<String, String> carTypeCodeMap = new HashMap<>();
@@ -61,11 +62,13 @@ public class TollParkingServiceImpl implements TollParkingService {
     }
 
     /**
+     * Based on the parking pricing policy, it calculates and returns the amount
+     * of money the customer should pay before leaving the parking.
      *
      * @param numberHours
      * @param fixedAmount
      * @param hourPrice
-     * @return
+     * @return {double}
      */
     private double AmountPayPricingPolicy(int numberHours, double fixedAmount, double hourPrice) {
         if (fixedAmount != 0) {
@@ -76,10 +79,11 @@ public class TollParkingServiceImpl implements TollParkingService {
     }
 
     /**
+     * A method that determines the amount of money the customer should pay before leaving the parking.
      *
      * @param tollParking
      * @param numberHours
-     * @return
+     * @return {double}
      */
     private double billCustomer(TollParking tollParking, int numberHours) {
         PricingPolicy pricingPolicy = tollParking.getPricingPolicy();
@@ -89,9 +93,11 @@ public class TollParkingServiceImpl implements TollParkingService {
 
     //public methods
     /**
+     * A method that determines if the parking name is valid or not.
+     * A valid parking name should be present in the application database.
      *
      * @param parkingName
-     * @return
+     * @return {true} or {false}
      */
     @Override
     public boolean isParkingNameValid(String parkingName) {
@@ -99,9 +105,11 @@ public class TollParkingServiceImpl implements TollParkingService {
     }
 
     /**
+     * A method that determines if the car type is valid or not.
+     * valid car types are: "Gasoline-powered", "20-Kw-power-supply" and "50-Kw-power-supply".
      *
      * @param carType
-     * @return
+     * @return {true} or {false}
      */
     @Override
     public boolean isCarTypeValid(String carType) {
@@ -109,10 +117,12 @@ public class TollParkingServiceImpl implements TollParkingService {
     }
 
     /**
+     * A method that determines if the slot identifier is valid or not.
+     * Examples of valid slot identifiers: G-20, E20-40, E50-60
      *
      * @param carType
      * @param slotIdentifier
-     * @return
+     * @return {true} or {false}
      */
     @Override
     public boolean isSlotNumberValid(String carType, String slotIdentifier) {
@@ -129,10 +139,12 @@ public class TollParkingServiceImpl implements TollParkingService {
     }
 
     /**
+     * A method to determine if a slot of the right type is available and send the car to it then mark
+     * it as unavailable, or refuse the car if there is no slot of the correct type available.
      *
      * @param parkingName
      * @param carType
-     * @return
+     * @return A "String" contains the parking name and the slot number, or there is no unoccupied parking slot.
      */
     @Override
     public String parkCarInGarage(String parkingName, String carType) {
@@ -160,12 +172,13 @@ public class TollParkingServiceImpl implements TollParkingService {
     }
 
     /**
+     * A method determines the amount of money the customer should pay before leaving the parking.
      *
      * @param parkingName
      * @param carType
      * @param slotIdentifier
      * @param numberHours
-     * @return
+     * @return A "String" contains the amount of money the customer should pay before leaving the parking.
      */
     @Override
     public String carLeavesGarage(String parkingName, String carType, String slotIdentifier, int numberHours) {

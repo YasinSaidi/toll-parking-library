@@ -44,8 +44,9 @@ public class GenerateRandomDataController {
 
     //public methods
     /**
+     *Controller to generate and save data in the application database to test "Toll Parking Library" Java APIs.
      *
-     * @return
+     * @return A message indicating that the data insertion finished successfully.
      */
     @ApiOperation(value = "Generate and save data in the application database to be able to " +
             "test \"Toll Parking Library\" Java APIs.")
